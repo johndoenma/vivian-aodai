@@ -636,7 +636,7 @@ body > * {
     overflow-wrap: break-word;
 } */
 
-.hero h^ {
+.hero h1 {
     max-inline-size: 50ch;
     text-wrap: balance;
 }
@@ -813,6 +813,7 @@ body > * {
     top: 0;
     left: 0;
     right: 0;
+    z-index: 100;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -910,54 +911,59 @@ body > * {
     font-weight: 600;
 }
 
-.img-full-width {
-    width: 100vw;
-    position: relative;
-    margin-top: 0;
-    margin-bottom: 0;
-    margin-left: -50vw;
-    left: 50%;
+.img-full-width img {
+    width: 100%
 }
   
 .introduction img {
-    object-fit: cover;
+    /* object-fit: cover;
     object-position: center;
     height: 600px;
-    width: 100%;
+    width: 100%; */
 }
 
 .student {
     display: flex;
     align-items: flex-start;
+    justify-content: space-between;
     padding: 1em;
 }
-  
-.student:nth-child(odd) {
-    flex-direction: row-reverse;
-}
+
+
   
 .student img {
     width: 100%;
     height: auto;
 }
-  
-.student-meta,
-.left-img,
-.right-img {
+
+.student-meta {
     width: 50%;
     padding: 1em;
+    max-width: 500px;
+    margin-inline: auto;
 }
   
 .left-img,
 .right-img {
-    padding-left: 0;
-    padding-right: 0;
+    width: 25%;
 }
   
+  @media ( width >= 768px ) {
 .student-meta {
     position: sticky;
     top: 0;
-    padding: 1em 2em 0em 2em;
+    /* padding: 1em 2em 0em 2em; */
+}
+  }
+
+@media ( width < 768px ) {
+    .student {
+        display: block;
+    }
+    .left-img,
+    .right-img {
+        width: 100%;
+    }
 }
 
 .drop-cap {
@@ -994,15 +1000,15 @@ body > * {
     content: '\201d';
     position: absolute;
 }
-@media (min-width: 768px) {
+/* @media (max-width: 767px) {
     .student .left-img {
         top: 0;
-        left: -210px;
-        translate: 10% 0;
+        left: -50%;
+        translate: 50% 0;
     }
 
     .student .right-img {
         top: 0;
-        right: -220px;
-        translate: -10% 0;
-}}
+        right: -50%;
+        translate: -50% 0;
+}} */
